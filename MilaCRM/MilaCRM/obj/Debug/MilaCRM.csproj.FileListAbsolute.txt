@@ -1,0 +1,10 @@
+C:\Users\Engel\source\repos\MilaCRM\MilaCRM\obj\Debug\MilaCRM.csprojAssemblyReference.cache
+C:\Users\Engel\source\repos\MilaCRM\MilaCRM\obj\Debug\MilaCRM.Form1.resources
+C:\Users\Engel\source\repos\MilaCRM\MilaCRM\obj\Debug\MilaCRM.Properties.Resources.resources
+C:\Users\Engel\source\repos\MilaCRM\MilaCRM\obj\Debug\MilaCRM.csproj.GenerateResource.cache
+C:\Users\Engel\source\repos\MilaCRM\MilaCRM\obj\Debug\MilaCRM.csproj.CoreCompileInputs.cache
+C:\Users\Engel\source\repos\MilaCRM\MilaCRM\bin\Debug\MilaCRM.exe.config
+C:\Users\Engel\source\repos\MilaCRM\MilaCRM\bin\Debug\MilaCRM.exe
+C:\Users\Engel\source\repos\MilaCRM\MilaCRM\bin\Debug\MilaCRM.pdb
+C:\Users\Engel\source\repos\MilaCRM\MilaCRM\obj\Debug\MilaCRM.exe
+C:\Users\Engel\source\repos\MilaCRM\MilaCRM\obj\Debug\MilaCRM.pdb

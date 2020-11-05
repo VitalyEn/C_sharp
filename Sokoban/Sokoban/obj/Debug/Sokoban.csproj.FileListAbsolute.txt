@@ -1,0 +1,11 @@
+C:\Users\Engel\source\repos\Sokoban\Sokoban\bin\Debug\Sokoban.exe.config
+C:\Users\Engel\source\repos\Sokoban\Sokoban\bin\Debug\Sokoban.exe
+C:\Users\Engel\source\repos\Sokoban\Sokoban\bin\Debug\Sokoban.pdb
+C:\Users\Engel\source\repos\Sokoban\Sokoban\obj\Debug\Sokoban.csprojAssemblyReference.cache
+C:\Users\Engel\source\repos\Sokoban\Sokoban\obj\Debug\Sokoban.LabirintForm.resources
+C:\Users\Engel\source\repos\Sokoban\Sokoban\obj\Debug\Sokoban.WelcomeForm.resources
+C:\Users\Engel\source\repos\Sokoban\Sokoban\obj\Debug\Sokoban.Properties.Resources.resources
+C:\Users\Engel\source\repos\Sokoban\Sokoban\obj\Debug\Sokoban.csproj.GenerateResource.cache
+C:\Users\Engel\source\repos\Sokoban\Sokoban\obj\Debug\Sokoban.csproj.CoreCompileInputs.cache
+C:\Users\Engel\source\repos\Sokoban\Sokoban\obj\Debug\Sokoban.exe
+C:\Users\Engel\source\repos\Sokoban\Sokoban\obj\Debug\Sokoban.pdb

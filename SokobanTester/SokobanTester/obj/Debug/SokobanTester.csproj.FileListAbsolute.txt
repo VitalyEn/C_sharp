@@ -1,0 +1,7 @@
+C:\Users\Engel\source\repos\SokobanTester\SokobanTester\bin\Debug\SokobanTester.exe.config
+C:\Users\Engel\source\repos\SokobanTester\SokobanTester\bin\Debug\SokobanTester.exe
+C:\Users\Engel\source\repos\SokobanTester\SokobanTester\bin\Debug\SokobanTester.pdb
+C:\Users\Engel\source\repos\SokobanTester\SokobanTester\obj\Debug\SokobanTester.csprojAssemblyReference.cache
+C:\Users\Engel\source\repos\SokobanTester\SokobanTester\obj\Debug\SokobanTester.csproj.CoreCompileInputs.cache
+C:\Users\Engel\source\repos\SokobanTester\SokobanTester\obj\Debug\SokobanTester.exe
+C:\Users\Engel\source\repos\SokobanTester\SokobanTester\obj\Debug\SokobanTester.pdb

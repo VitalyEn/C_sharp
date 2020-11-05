@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dd3cc9997bb446df96649227f8187ebe" Name="Diagram1" >
+        <EntityTypeShape EntityType="Model1.Anamnez" Width="1.5" PointX="6.75" PointY="0.5" />
+        <EntityTypeShape EntityType="Model1.Diagnoz" Width="1.5" PointX="9.25" PointY="0.625" />
+        <EntityTypeShape EntityType="Model1.FIO" Width="1.5" PointX="2.125" PointY="2.375" />
+        <EntityTypeShape EntityType="Model1.Vizit" Width="1.5" PointX="5.75" PointY="4.625" />
+        <AssociationConnector Association="Model1.FIOVizit" />
+        <AssociationConnector Association="Model1.AnamnezVizit" />
+        <AssociationConnector Association="Model1.DiagnozVizit" />
+        <EntityTypeShape EntityType="Model1.Claims" Width="1.5" PointX="4.5" PointY="0.75" />
+        <AssociationConnector Association="Model1.ClaimsVizit" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

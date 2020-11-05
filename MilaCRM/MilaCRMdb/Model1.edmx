@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Model1StoreContainer">
+    <EntitySet Name="AnamnezSet" EntityType="Model1.Store.AnamnezSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DiagnozSet" EntityType="Model1.Store.DiagnozSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FIOSet" EntityType="Model1.Store.FIOSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VizitSet" EntityType="Model1.Store.VizitSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ClaimsSet" EntityType="Model1.Store.ClaimsSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FIOVizit" Association="Model1.Store.FIOVizit">
+      <End Role="FIO" EntitySet="FIOSet" />
+      <End Role="Vizit" EntitySet="VizitSet" />
+    </AssociationSet>
+    <AssociationSet Name="AnamnezVizit" Association="Model1.Store.AnamnezVizit">
+      <End Role="Anamnez" EntitySet="AnamnezSet" />
+      <End Role="Vizit" EntitySet="VizitSet" />
+    </AssociationSet>
+    <AssociationSet Name="DiagnozVizit" Association="Model1.Store.DiagnozVizit">
+      <End Role="Diagnoz" EntitySet="DiagnozSet" />
+      <End Role="Vizit" EntitySet="VizitSet" />
+    </AssociationSet>
+    <AssociationSet Name="ClaimsVizit" Association="Model1.Store.ClaimsVizit">
+      <End Role="Claims" EntitySet="ClaimsSet" />
+      <End Role="Vizit" EntitySet="VizitSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="AnamnezSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Anam" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DiagnozSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Diag" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FIOSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SerName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SecondName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BirthDate" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VizitSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VizitDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Weight" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Height" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FIO_Id" Type="int" Nullable="false" />
+    <Property Name="Anamnez_Id" Type="int" Nullable="false" />
+    <Property Name="Diagnoz_Id" Type="int" Nullable="false" />
+    <Property Name="Claim_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClaimsSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Claim" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="FIOVizit">
+    <End Role="FIO" Type="Model1.Store.FIOSet" Multiplicity="1" />
+    <End Role="Vizit" Type="Model1.Store.VizitSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FIO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vizit">
+        <PropertyRef Name="FIO_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AnamnezVizit">
+    <End Role="Anamnez" Type="Model1.Store.AnamnezSet" Multiplicity="1" />
+    <End Role="Vizit" Type="Model1.Store.VizitSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Anamnez">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vizit">
+        <PropertyRef Name="Anamnez_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DiagnozVizit">
+    <End Role="Diagnoz" Type="Model1.Store.DiagnozSet" Multiplicity="1" />
+    <End Role="Vizit" Type="Model1.Store.VizitSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Diagnoz">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vizit">
+        <PropertyRef Name="Diagnoz_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClaimsVizit">
+    <End Role="Claims" Type="Model1.Store.ClaimsSet" Multiplicity="1" />
+    <End Role="Vizit" Type="Model1.Store.VizitSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Claims">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vizit">
+        <PropertyRef Name="Claim_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AnamnezSet" EntityType="Model1.Anamnez" />
+          <EntitySet Name="DiagnozSet" EntityType="Model1.Diagnoz" />
+          <EntitySet Name="FIOSet" EntityType="Model1.FIO" />
+          <EntitySet Name="VizitSet" EntityType="Model1.Vizit" />
+          <AssociationSet Name="FIOVizit" Association="Model1.FIOVizit">
+            <End Role="FIO" EntitySet="FIOSet" />
+            <End Role="Vizit" EntitySet="VizitSet" />
+          </AssociationSet>
+          <AssociationSet Name="AnamnezVizit" Association="Model1.AnamnezVizit">
+            <End Role="Anamnez" EntitySet="AnamnezSet" />
+            <End Role="Vizit" EntitySet="VizitSet" />
+          </AssociationSet>
+          <AssociationSet Name="DiagnozVizit" Association="Model1.DiagnozVizit">
+            <End Role="Diagnoz" EntitySet="DiagnozSet" />
+            <End Role="Vizit" EntitySet="VizitSet" />
+          </AssociationSet>
+          <EntitySet Name="ClaimsSet" EntityType="Model1.Claims" />
+          <AssociationSet Name="ClaimsVizit" Association="Model1.ClaimsVizit">
+            <End Role="Claims" EntitySet="ClaimsSet" />
+            <End Role="Vizit" EntitySet="VizitSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Anamnez">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Anam" Type="String" Nullable="false" />
+          <NavigationProperty Name="Vizit" Relationship="Model1.AnamnezVizit" FromRole="Anamnez" ToRole="Vizit" />
+        </EntityType>
+        <EntityType Name="Diagnoz">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Diag" Type="String" Nullable="false" />
+          <NavigationProperty Name="Vizit" Relationship="Model1.DiagnozVizit" FromRole="Diagnoz" ToRole="Vizit" />
+        </EntityType>
+        <EntityType Name="FIO">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SerName" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="SecondName" Type="String" Nullable="false" />
+          <Property Name="BirthDate" Type="String" Nullable="false" />
+          <NavigationProperty Name="Vizit" Relationship="Model1.FIOVizit" FromRole="FIO" ToRole="Vizit" />
+        </EntityType>
+        <EntityType Name="Vizit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="FIO" Relationship="Model1.FIOVizit" FromRole="Vizit" ToRole="FIO" />
+          <NavigationProperty Name="Anamnez" Relationship="Model1.AnamnezVizit" FromRole="Vizit" ToRole="Anamnez" />
+          <NavigationProperty Name="Diagnoz" Relationship="Model1.DiagnozVizit" FromRole="Vizit" ToRole="Diagnoz" />
+          <Property Name="VizitDate" Type="String" Nullable="false" />
+          <Property Name="Weight" Type="String" Nullable="false" />
+          <Property Name="Height" Type="String" Nullable="false" />
+          <NavigationProperty Name="Claim" Relationship="Model1.ClaimsVizit" FromRole="Vizit" ToRole="Claims" />
+        </EntityType>
+        <Association Name="FIOVizit">
+          <End Type="Model1.FIO" Role="FIO" Multiplicity="1" />
+          <End Type="Model1.Vizit" Role="Vizit" Multiplicity="*" />
+        </Association>
+        <Association Name="AnamnezVizit">
+          <End Type="Model1.Anamnez" Role="Anamnez" Multiplicity="1" />
+          <End Type="Model1.Vizit" Role="Vizit" Multiplicity="*" />
+        </Association>
+        <Association Name="DiagnozVizit">
+          <End Type="Model1.Diagnoz" Role="Diagnoz" Multiplicity="1" />
+          <End Type="Model1.Vizit" Role="Vizit" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Claims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Claim" Type="String" Nullable="false" />
+          <NavigationProperty Name="Vizit" Relationship="Model1.ClaimsVizit" FromRole="Claims" ToRole="Vizit" />
+        </EntityType>
+        <Association Name="ClaimsVizit">
+          <End Type="Model1.Claims" Role="Claims" Multiplicity="1" />
+          <End Type="Model1.Vizit" Role="Vizit" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
+    <EntitySetMapping Name="AnamnezSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Anamnez)">
+        <MappingFragment StoreEntitySet="AnamnezSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Anam" ColumnName="Anam" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DiagnozSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Diagnoz)">
+        <MappingFragment StoreEntitySet="DiagnozSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Diag" ColumnName="Diag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FIOSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.FIO)">
+        <MappingFragment StoreEntitySet="FIOSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SerName" ColumnName="SerName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SecondName" ColumnName="SecondName" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VizitSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Vizit)">
+        <MappingFragment StoreEntitySet="VizitSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="VizitDate" ColumnName="VizitDate" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClaimsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Claims)">
+        <MappingFragment StoreEntitySet="ClaimsSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Claim" ColumnName="Claim" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FIOVizit" TypeName="Model1.FIOVizit" StoreEntitySet="VizitSet">
+      <EndProperty Name="FIO">
+        <ScalarProperty Name="Id" ColumnName="FIO_Id" />
+      </EndProperty>
+      <EndProperty Name="Vizit">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AnamnezVizit" TypeName="Model1.AnamnezVizit" StoreEntitySet="VizitSet">
+      <EndProperty Name="Anamnez">
+        <ScalarProperty Name="Id" ColumnName="Anamnez_Id" />
+      </EndProperty>
+      <EndProperty Name="Vizit">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DiagnozVizit" TypeName="Model1.DiagnozVizit" StoreEntitySet="VizitSet">
+      <EndProperty Name="Diagnoz">
+        <ScalarProperty Name="Id" ColumnName="Diagnoz_Id" />
+      </EndProperty>
+      <EndProperty Name="Vizit">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ClaimsVizit" TypeName="Model1.ClaimsVizit" StoreEntitySet="VizitSet">
+      <EndProperty Name="Claims">
+        <ScalarProperty Name="Id" ColumnName="Claim_Id" />
+      </EndProperty>
+      <EndProperty Name="Vizit">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
